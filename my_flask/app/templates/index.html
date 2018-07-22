@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Flasky{% endblock %}
+
+{% block page_content %}
+<!--<div class="page-header">-->
+<!--<h1>Hello, {% if name %}{{ name }}{% else %}Stranger{% endif %}!</h1>-->
+<!--{% if not known %}-->
+<!--<p>Pleased to meet you!</p>-->
+<!--{% else %}-->
+<!--<p>Happy to see you again!</p>-->
+<!--{% endif %}-->
+<!--</div>-->
+<!--{{ wtf.quick_form(form) }}-->
+
+<div class="alert alert-success" role="alert">
+    A simple success alert—check it out!
+    以下内容是图表
+</div>
+
+
+<div class="alert alert-success" role="alert">
+    A simple success alert—check it out!
+    以下内容是模块
+</div>
+
+<div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+    <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+        <canvas class="my-4 w-100" id="myChart1" width="900" height="380"></canvas>
+    </div>
+    <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+        <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
+    </div>
+</div>
+<!-- Graphs -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+<script>
+    var ctx = document.getElementById("myChart");
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            datasets: [{
+                data: [15339, 21345, 18483, 24003, 23489, 24092, 12034],
+                lineTension: 0,
+                backgroundColor: 'transparent',
+                borderColor: '#007bff',
+                borderWidth: 4,
+                pointBackgroundColor: '#007bff'
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: false
+                    }
+                }]
+            },
+            legend: {
+                display: false,
+            }
+        }
+    });
+
+    var ctx1 = document.getElementById("myChart1");
+    var myChart1 = new Chart(ctx1, {
+        type: 'line',
+        data: {
+            labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            datasets: [{
+                data: [15339, 21345, 18483, 24003, 23489, 24092, 12034],
+                lineTension: 0,
+                backgroundColor: 'transparent',
+                borderColor: '#007bff',
+                borderWidth: 4,
+                pointBackgroundColor: '#007bff'
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: false
+                    }
+                }]
+            },
+            legend: {
+                display: false,
+            }
+        }
+    });
+</script>
+
+
+{% endblock %}
